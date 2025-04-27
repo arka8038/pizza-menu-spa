@@ -1,11 +1,15 @@
-const Pizza = (props) => {
+const Pizza = ({ pizzaObj }) => {
+  if (pizzaObj.soldOut) return null;
+
   return (
-    <div key={props.name}>
-      <img src={props.photoName} alt={props.name} />
-      <h3>{props.name}</h3>
-      <p>{props.ingredients}</p>
-      <span>{props.price}</span>
-    </div>
+    <li key={pizzaObj.name} className='pizza'>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <div>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price}</span>
+      </div>
+    </li>
   );
 };
 
